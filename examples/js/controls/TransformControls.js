@@ -35,6 +35,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 	defineProperty( "showX", true );
 	defineProperty( "showY", true );
 	defineProperty( "showZ", true );
+	defineProperty( "enableDrag", false );
 
 	var changeEvent = { type: "change" };
 	var mouseDownEvent = { type: "mouseDown" };
@@ -222,7 +223,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 
 		var intersect = ray.intersectObjects( _gizmo.picker[ this.mode ].children, true )[ 0 ] || false;
 
-		if ( intersect ) {
+		/*if ( intersect ) {
 
 			this.axis = intersect.object.name;
 
@@ -230,6 +231,13 @@ THREE.TransformControls = function ( camera, domElement ) {
 
 			this.axis = null;
 
+		}
+		*/
+		
+		if(this.enableDrag){
+			this.axis = "XY"
+		} else {
+		
 		}
 
 	};
